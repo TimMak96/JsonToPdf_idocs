@@ -10,10 +10,19 @@ namespace JsonToPdf.Model
 {
     public class DataContext : DbContext
     {
-        public DbSet<BaseEntity> Documents { get; set; }
+        public DbSet<BaseDocumentEntity> BaseDocumentsEntity { get; set; }
      
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ActOfReconciliation>().ToTable("ActsOfReconciliation");
+            modelBuilder.Entity<ConsignmentNote>().ToTable("ConsignmentsNotes");
+            modelBuilder.Entity<Contract>().ToTable("Contracts");
+            modelBuilder.Entity<GeneratedPdf>().ToTable("GeneratedPdfs");
         }
 
         public async Task<int> SaveChangesAsync()
@@ -21,5 +30,4 @@ namespace JsonToPdf.Model
             return await base.SaveChangesAsync();
         }
     }
-
 }

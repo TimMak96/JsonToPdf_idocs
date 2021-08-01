@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace JsonToPdf.Model.Entities
 {
+    /// <summary>
+    /// Накладная
+    /// </summary>
     [Table("ConsignmentsNotes")]
-    public class ConsignmentNote : BaseDocumentEntity
+    public class ConsignmentNoteEntity : BaseDocumentEntity
     {
+        /// <summary>
+        /// ИД товара
+        /// </summary>
         [Column(TypeName = "decimal(32, 0)")]
         public decimal ProdictId { get; set; }
     }

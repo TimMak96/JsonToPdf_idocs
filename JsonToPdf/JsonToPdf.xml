@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JsonToPdf</name>
+    </assembly>
+    <members>
+        <member name="M:JsonToPdf.Controllers.BaseController.JsonToPdf(JsonToPdf.Module.Models.BaseDocument)">
+            <summary>
+            Метод Преобразования Json в PDF
+            </summary>
+            <param name="value">Входные параметры документа</param>
+            <returns>Id сформированного документа</returns>
+        </member>
+    </members>
+</doc>

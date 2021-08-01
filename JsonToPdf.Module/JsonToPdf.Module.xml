@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JsonToPdf.Module</name>
+    </assembly>
+    <members>
+        <member name="T:JsonToPdf.Module.JsonProcessing.IJsonProcessing">
+            <summary>
+            Интерфейс для 
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Module.JsonProcessing.JsonProcessing">
+            <summary>
+            Класс для определения типа документа
+            </summary>
+        </member>
+        <member name="M:JsonToPdf.Module.JsonProcessing.JsonProcessing.DocumentTypeDefinition(JsonToPdf.Module.Models.BaseDocument)">
+            <summary>
+            Метод определения типа документа по общему классу
+            </summary>
+            <param name="entity">Базовая сущность</param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonToPdf.Module.JsonProcessing.JsonProcessing.ProcessingJsonDocument(System.String)">
+            <summary>
+            Обработка документа
+            </summary>
+            <param name="JsonString">Получаемый Json</param>
+            <returns></returns>
+        </member>
+        <member name="T:JsonToPdf.Module.Models.ActOfReconciliation">
+            <summary>
+            Акт сверки
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Module.Models.ActOfReconciliation.Id">
+            <summary>
+            Уникальный индификатор документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Module.Models.ActOfReconciliation.Number">
+            <summary>
+            Номер документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Module.Models.ActOfReconciliation.DocumentType">
+            <summary>
+            Тип документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Module.Models.ActOfReconciliation.ActName">
+            <summary>
+            Наименование акта сверки
+            </summary>
+        </member>
+        <member name="M:JsonToPdf.Module.Models.ActOfReconciliation.#ctor(System.Guid,System.String,JsonToPdf.Model.Enums.DocumentType,System.String)">
+            <summary>
+            Конструктор Акта сверки
+            </summary>
+            <param name="actOfReconciliationEntity">Сущность Акта сверки</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:JsonToPdf.Module.Models.BaseDocument" -->
+        <member name="P:JsonToPdf.Module.Models.BaseDocument.Id">
+            <summary>
+            Уникальный индификатор документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Module.Models.BaseDocument.Number">
+            <summary>
+            Номер документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Module.Models.BaseDocument.DocumentType">
+            <summary>
+            Тип документа
+            </summary>
+        </member>
+    </members>
+</doc>

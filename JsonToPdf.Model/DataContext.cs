@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace JsonToPdf.Model
 {
+    /// <summary>
+    ///  Определяем контекст данных, используемый для взаимодействия с базой данных.
+    /// </summary>
     public class DataContext : DbContext
     {
         public DbSet<BaseDocumentEntity> BaseDocumentsEntity { get; set; }
@@ -16,15 +19,21 @@ namespace JsonToPdf.Model
         {
 
         }
-
+        /// <summary>
+        ///  Сопоставление классов с сущностями в базе данных.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ActOfReconciliation>().ToTable("ActsOfReconciliation");
-            modelBuilder.Entity<ConsignmentNote>().ToTable("ConsignmentsNotes");
-            modelBuilder.Entity<Contract>().ToTable("Contracts");
-            modelBuilder.Entity<GeneratedPdf>().ToTable("GeneratedPdfs");
+            modelBuilder.Entity<ActOfReconciliationEntity>().ToTable("ActsOfReconciliation");
+            modelBuilder.Entity<ConsignmentNoteEntity>().ToTable("ConsignmentsNotes");
+            modelBuilder.Entity<ContractEntity>().ToTable("Contracts");
+            modelBuilder.Entity<GeneratedPdfEntity>().ToTable("GeneratedPdfs");
         }
-
+        /// <summary>
+        /// Асинхронное сохранение получаемых JSON в БД
+        /// </summary>
+        /// <returns></returns>
         public async Task<int> SaveChangesAsync()
         {
             return await base.SaveChangesAsync();

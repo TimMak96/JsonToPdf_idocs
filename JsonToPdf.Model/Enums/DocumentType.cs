@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace JsonToPdf.Model.Enums
 {
     /// <summary>
-    /// Возможные статусы PDF-файла
+    /// Возможные типы документов для обработки
     /// </summary>
-    public enum Status
+    public enum DocumentType
     {
-        InitializeDocument = 0,
-        AcceptedDocument = 1,
-        ErrorDocument = 2
+        ConsigmentNote = 0,
+        Contract = 1,
+        ActOfReconciliation = 2
     }
 }

@@ -1,18 +1,17 @@
 ﻿using JsonToPdf.Model.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace JsonToPdf.Model.Entities
+namespace JsonToPdf.Module.Models
 {
-    /// <summary>
-    /// Общий класс, содержащий в себе пересекающиеся поля дочерних классов
+    // <summary>
+    /// Модель, содержащая в себе пересекающиеся поля дочерних классов
     /// </summary>
-    public abstract class BaseDocumentEntity
+    public class BaseDocument
     {
+     
         /// <summary>
         /// Уникальный индификатор документа
         /// </summary>
@@ -20,11 +19,11 @@ namespace JsonToPdf.Model.Entities
         /// <summary>
         /// Номер документа
         /// </summary>
-        [Column(TypeName = "VARCHAR(255)")]
         public string Number { get; set; }
         /// <summary>
         /// Тип документа
         /// </summary>
         public DocumentType DocumentType { get; set; }
+
     }
 }

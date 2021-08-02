@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JsonToPdf.Model</name>
+    </assembly>
+    <members>
+        <member name="T:JsonToPdf.Model.DataContext">
+            <summary>
+             Определяем контекст данных, используемый для взаимодействия с базой данных.
+            </summary>
+        </member>
+        <member name="M:JsonToPdf.Model.DataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+             Сопоставление классов с сущностями в базе данных.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="M:JsonToPdf.Model.DataContext.SaveChangesAsync">
+            <summary>
+            Асинхронное сохранение получаемых JSON в БД
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JsonToPdf.Model.Entities.ActOfReconciliationEntity">
+            <summary>
+            Акт сверки
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.ActOfReconciliationEntity.ActName">
+            <summary>
+            Наименование акта сверки
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Entities.BaseDocumentEntity">
+            <summary>
+            Общий класс, содержащий в себе пересекающиеся поля дочерних классов
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.BaseDocumentEntity.Id">
+            <summary>
+            Уникальный индификатор документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.BaseDocumentEntity.Number">
+            <summary>
+            Номер документа
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.BaseDocumentEntity.DocumentType">
+            <summary>
+            Тип документа
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Entities.ConsignmentNoteEntity">
+            <summary>
+            Накладная
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.ConsignmentNoteEntity.ProdictId">
+            <summary>
+            ИД товара
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Entities.ContractEntity">
+            <summary>
+            Договор
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.ContractEntity.DateOfContract">
+            <summary>
+            Дата заключения договора
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Entities.GeneratedPdfEntity">
+            <summary>
+            Сущность, содержащая в себе информацию по сгенерированным PDF-файлам
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.GeneratedPdfEntity.PdfName">
+            <summary>
+            Наименование PDF-файла
+            </summary>
+        </member>
+        <member name="P:JsonToPdf.Model.Entities.GeneratedPdfEntity.PdfStatus">
+            <summary>
+            Статус генерируемого PDF-файла 
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Enums.DocumentType">
+            <summary>
+            Возможные типы документов для обработки
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Enums.Status">
+            <summary>
+            Возможные статусы PDF-файла
+            </summary>
+        </member>
+        <member name="T:JsonToPdf.Model.Repositories.DbRepository`1">
+            <summary>
+            Класс для взаимодействия с БД
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:JsonToPdf.Model.Repositories.DbRepository`1.Add(`0)">
+            <summary>
+            Метод для добавления параметров в Базу данных
+            </summary>
+            <param name="entity">Сущность добавляемого документа</param>
+            <returns>Id добавленного документа</returns>
+        </member>
+        <member name="T:JsonToPdf.Model.Repositories.IDbRepository`1">
+            <summary>
+            Репозиторий для работы с БД
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:JsonToPdf.Model.Repositories.IDbRepository`1.Add(`0)">
+            <summary>
+            Метод добавления данных в таблицу
+            </summary>
+            <param name="entity">Добавляемая сущность в таблицы</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

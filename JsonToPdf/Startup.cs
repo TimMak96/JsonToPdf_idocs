@@ -1,7 +1,12 @@
+using JsonToPdf.Model;
+using JsonToPdf.Model.Repositories;
+using JsonToPdf.Module.JsonProcessing;
+using JsonToPdf.Module.PdfProcessing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,7 +14,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace JsonToPdf
@@ -24,14 +31,23 @@ namespace JsonToPdf
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, ILogger<Startup> logger)
         {
+            services.AddDbContext<DataContext>(opt =>
+               opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "JsonToPdf", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
+            services.AddTransient(typeof(IDbRepository<>), typeof(DbRepository<>));
+            services.AddTransient<IJsonProcessing, JsonProcessing>();
+            services.AddTransient<IPdfGenerator, PdfGenetator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
